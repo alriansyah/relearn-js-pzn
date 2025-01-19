@@ -31,9 +31,12 @@ function isContains(array, searchValue) {
   for (const element of array) {
     console.log(`iterasi ke : ${element}`);
     if (element === searchValue) {
+      console.log(true);
       return element;
     }
   }
+
+  console.log(false);
   return false;
 }
 
