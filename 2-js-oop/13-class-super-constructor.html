@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Class Super Constructor</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Class Super Constructor :
+        - Kata kunci super digunakan untuk memanggil constructor super class
+        - Jika di child class kita membuat constructor, maka kita wajib memanggil parent constructor, walaupun di parent tidak ada constructor
+       */
+      class Employee {
+        constructor(firstName) {
+          this.firstName = firstName;
+        }
+
+        sayHello(name) {
+          console.info(`Hello ${name}, my name is employee ${this.firstName}`);
+        }
+      }
+
+      class Manager extends Employee {
+        constructor(firstName, lastName) {
+          super(firstName);
+          this.lastName = lastName;
+        }
+
+        sayHello(name) {
+          console.info(
+            `Hello ${name}, my name is manager ${this.firstName} ${this.lastName}`
+          );
+        }
+      }
+
+      const budi = new Employee("Budi");
+      budi.sayHello("Joko");
+
+      const eko = new Manager("Eko", "Khannedy");
+      eko.sayHello("Joko");
+
+      console.info(budi);
+      console.info(eko);
+      console.log("----------------------------------------------------------------------------");
+
+      //  Contoh kompleks :
+      class Kendaraan {
+        constructor(merek, model, tahun) {
+          this.merek = merek;
+          this.model = model;
+          this.tahun = tahun;
+        }
+
+        info() {
+          return `Kendaraan: ${this.merek} ${this.model} (${this.tahun})`;
+        }
+
+        hitungJarakTempuh() {
+          return `Jarak tempuh belum diketahui.`;
+        }
+      }
+
+      // Subclass Mobil yang mewarisi dari Kendaraan
+      class Mobil extends Kendaraan {
+        constructor(merek, model, tahun, jumlahPintu, bahanBakar) {
+          super(merek, model, tahun); // Memanggil konstruktor superclass
+          this.jumlahPintu = jumlahPintu;
+          this.bahanBakar = bahanBakar;
+        }
+
+        info() {
+          return `${super.info()}, Pintu: ${this.jumlahPintu}, Bahan Bakar: ${
+            this.bahanBakar
+          }`;
+        }
+
+        hitungJarakTempuh() {
+          return `Mobil ini dapat menempuh sekitar 500 km dengan tangki penuh.`;
+        }
+      }
+
+      // Subclass MobilListrik yang mewarisi dari Mobil
+      class MobilListrik extends Mobil {
+        constructor(merek, model, tahun, jumlahPintu, kapasitasBaterai) {
+          super(merek, model, tahun, jumlahPintu, "Listrik"); // Memanggil konstruktor superclass
+          this.kapasitasBaterai = kapasitasBaterai;
+        }
+
+        info() {
+          return `${super.info()}, Kapasitas Baterai: ${
+            this.kapasitasBaterai
+          } kWh`;
+        }
+
+        hitungJarakTempuh() {
+          return `Mobil listrik ini dapat menempuh sekitar ${
+            this.kapasitasBaterai * 6
+          } km per pengisian penuh.`;
+        }
+      }
+
+      // Membuat objek dari setiap kelas
+      const kendaraanUmum = new Kendaraan("Toyota", "Kijang", 2005);
+      const mobilBensin = new Mobil("Honda", "Civic", 2022, 4, "Bensin");
+      const mobilTesla = new MobilListrik("Tesla", "Model S", 2023, 4, 100);
+
+      console.log(kendaraanUmum.info());
+      // Output: Kendaraan: Toyota Kijang (2005)
+
+      console.log(mobilBensin.info());
+      // Output: Kendaraan: Honda Civic (2022), Pintu: 4, Bahan Bakar: Bensin
+
+      console.log(mobilTesla.info());
+      // Output: Kendaraan: Tesla Model S (2023), Pintu: 4, Bahan Bakar: Listrik, Kapasitas Baterai: 100 kWh
+
+      console.log(mobilBensin.hitungJarakTempuh());
+      // Output: Mobil ini dapat menempuh sekitar 500 km dengan tangki penuh.
+
+      console.log(mobilTesla.hitungJarakTempuh());
+      // Output: Mobil listrik ini dapat menempuh sekitar 600 km per pengisian penuh.
+    </script>
+  </body>
+</html>
