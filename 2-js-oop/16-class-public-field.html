@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Class : Public Field</title>
-</head>
-<body>
-<script>
+  </head>
+  <body>
+    <script>
+      /*
+        - public class field menempel di instance objectnya, bukan di prototypenya
+        - public class field juga dapat diubah via constructor
+       */
 
-    class Customer {
-
+      class Customer {
         firstName;
         lastName;
         balance = 0;
 
         constructor(firstName, lastName) {
-            this.firstName = firstName;
-            this.lastName = lastName;
+          this.firstName = firstName;
+          this.lastName = lastName;
         }
 
-        sayHello(){
+        sayHello() {}
+      }
 
-        }
-    }
-
-    const eko = new Customer("Eko", "Khannedy");
-    console.info(eko);
-
-</script>
-</body>
+      const eko = new Customer("Eko", "Khannedy");
+      console.info(eko);
+    </script>
+  </body>
 </html>
