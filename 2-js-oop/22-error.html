@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Error</title>
+  </head>
+  <body>
+    <script>
+      /*
+        link materi : https://docs.google.com/presentation/d/1kZJB3w5Zgnr4bUCjHMs9LdBGurnT8PR57f7U9h9vGzg/edit?pli=1&slide=id.gbeaacd8668_0_619#slide=id.gbeaacd8668_0_619
+      */
+
+      class MathUtil {
+        static sum(...numbers) {
+          if (numbers.length === 0) {
+            // const error = new Error("Total parameter harus lebih dari 0");
+            // throw error;
+            throw new Error("Total parameter harus lebih dari 0"); // lebih sederhana
+          }
+
+          let total = 0;
+          for (const number of numbers) {
+            total += number;
+          }
+          return total;
+        }
+      }
+
+      console.info(MathUtil.sum());
+      console.info("Eko");
+
+      const result = MathUtil.sum(1, 1, 1, 1, 1);
+      console.info(result);
+    </script>
+  </body>
+</html>
