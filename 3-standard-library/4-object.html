@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Object</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Object :
+        Link Materi :
+        - https://docs.google.com/presentation/d/1qaqOnHQLyeIBBc1wEG49XRtAwp1vSMsKn66-cOR9ML8/edit?slide=id.gb9271b049a_0_94#slide=id.gb9271b049a_0_94
+      */
+
+      {
+        // Object Freeze & Seal :
+
+        console.log("--------------->Object Freeze & Seal<----------------");
+        const person = {
+          firstName: "Eko",
+          lastName: "Khannedy",
+        };
+
+        Object.freeze(person); // digunakan untuk mengubah object menjadi object yang tidak bisa diubah atau dihapus attribute nya
+        // Object.seal(person); // digunakan untuk mengubah object menjadi object yang tidak bisa dihapus attribute nya
+
+        person.firstName = "Budi";
+        person.middleName = "Kurniawan";
+        delete person.lastName;
+
+        console.info(person);
+      }
+
+      {
+        // Object assign :
+        // Kadang kita ada kasus menggabungkan semua attribute dari sebuah object ke object lain
+        // Hal ini bisa kita lakukan dengan menggunakan Object.assign(target, source)
+
+
+        console.log("--------------->Object Assign<----------------");
+        const target = {
+          firstName: "Eko",
+        };
+        const source = {
+          lastName: "Khannedy",
+        };
+
+        Object.assign(target, source);
+        console.info(target);
+        console.info(source);
+      }
+
+      {
+        // Object property name & value :
+        // - returnnya sebuah array
+
+        console.log("--------------->Object Property Name & Value<----------------");
+        const person = {
+          firstName: "Eko",
+          lastName: "Khannedy",
+        };
+
+        console.info(Object.values(person)); // Object.values() digunakan untuk mengambil semua nilai yang ada disetiap property di object
+        console.info(Object.getOwnPropertyNames(person)); // Object.getOwnPropertyNames() digunakan untuk mengambil semua nama property yang ada di object
+      }
+    </script>
+  </body>
+</html>
