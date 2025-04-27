@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSON</title>
+  </head>
+  <body>
+    <script>
+      /*
+        JSON :
+        Link Materi :
+        - https://docs.google.com/presentation/d/1qaqOnHQLyeIBBc1wEG49XRtAwp1vSMsKn66-cOR9ML8/edit?slide=id.gb9271b049a_0_199#slide=id.gb9271b049a_0_199
+      */
+
+      const person = {
+        firstName: "Eko",
+        middleName: "Kurniawan",
+        lastName: "Khannedy",
+        address: {
+          country: "Indonesia",
+          city: "Subang",
+        },
+        hobbies: ["Coding", "Game", "Traveling"],
+      };
+
+      const json = JSON.stringify(person);
+      console.info(json);
+
+      const jsonObject = JSON.parse(json);
+      console.info(jsonObject);
+
+      // Bisa juga digunakan untuk array
+      console.log("--------------->Array<----------------");
+      const json2 = JSON.stringify([person]);
+      console.info(json2);
+
+      const jsonObject2 = JSON.parse(json2);
+      console.info(jsonObject2);
+    </script>
+  </body>
+</html>
