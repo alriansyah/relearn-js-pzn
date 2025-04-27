@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Array</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Array :
+        Link Materi :
+        - https://docs.google.com/presentation/d/1qaqOnHQLyeIBBc1wEG49XRtAwp1vSMsKn66-cOR9ML8/edit?slide=id.gb9271b049a_0_90#slide=id.gb9271b049a_0_90
+      */
+
+      {
+        // array loop
+        console.log("--------------->Array Loop<----------------");
+        const array = ["Eko", "Kurnniawan", "Khannedy"];
+
+        array.forEach(function (value, index) {
+          console.info(`${index} : ${value}`);
+        });
+
+        array.forEach((value, index) => console.info(`${index} : ${value}`));
+
+        array.forEach((value) => console.info(value));
+      }
+
+      {
+        // array queue
+        // push : menambah data di akhir array
+        // shift : mengambil dan menghapus data di awal array
+
+        console.log("--------------->Array Queue<----------------");
+        const queue = [];
+
+        queue.push("Eko");
+        queue.push("Kurniawan");
+        queue.push("Khannedy");
+
+        console.info(queue.shift());
+        console.info(queue.shift());
+        console.info(queue.shift());
+        console.info(queue.shift());
+        console.log(queue);
+      }
+
+      {
+        // array stack (tumpukan)
+        // - Sifatnya LIFO (Last In First Out) : siapa yang datang belakangan maka dia yang pertama keluar karena paling atas
+        // push : menambah data di akhir array
+        // pop : mengambil dan menghapus data di akhir array
+
+        console.log("--------------->Array Stack<----------------");
+        const stack = [];
+
+        stack.push("Eko");
+        stack.push("Kurniawan");
+        stack.push("Khannedy");
+
+        console.info(stack.pop());
+        console.info(stack.pop());
+        console.info(stack.pop());
+        console.info(stack.pop());
+        console.log(stack);
+      }
+
+      {
+        // array search
+
+        console.log("--------------->Array Search / Find<----------------");
+        const source = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5];
+
+        console.info(source.find((value) => value > 3)); // returnnya adalah data/nilai yang pertama ditemukan
+        console.info(source.findIndex((value) => value > 3)); // returnnya adalah index dari data/nilai yang pertama ditemukan
+        console.info(source.includes(7)); // returnnya adalah boolean, mengecek apakah data/nilai tersebut ada di dalam array
+        console.info(source.indexOf(5)); // returnnya adalah index dari nilai yang dicari
+        console.info(source.lastIndexOf(5)); // returnnya adalah index terakhir dari nilai yang dicari
+      }
+
+      {
+        // array filter
+        // - memfilter data berdasarkan kondisi tertentu yang sesuai kriteria
+        // - returnnya adalah array baru
+
+        console.log("--------------->Array Filter<----------------");
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        const ganjil = numbers.filter((value) => value % 2 === 1);
+        const genap = numbers.filter((value) => value % 2 === 0);
+
+        console.info(numbers);
+        console.info(ganjil);
+        console.info(genap);
+      }
+
+      {
+        // array transform
+
+        console.log("--------------->Array Transform<----------------");
+        const names = ["Eko", "Kurniawan", "Khannedy"];
+
+        // Map : melakukan transform tiap value dan menghasilkan array result/baru
+        const namesUpper = names.map((value) => value.toUpperCase());
+        console.info(namesUpper);
+
+        // Reduce : melakukan transform dengan menggunakan value array dan value selanjutnya, lalu hasilnya dilanjutkan ke iterasi selanjutnya
+        const namesReduce = names.reduce(
+          (before, value) => before + " " + value
+        );
+        console.info(namesReduce);
+
+        // Reduce Right :sama seperti reduce, namun dilakukan dari belakang
+        const namesRight = names.reduceRight(
+          (before, value) => before + " " + value
+        );
+        console.info(namesRight);
+
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        const total = numbers.reduce((before, value) => before + value);
+        console.info(total);
+      }
+    </script>
+  </body>
+</html>
