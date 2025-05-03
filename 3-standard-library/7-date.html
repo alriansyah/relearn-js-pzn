@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Date</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Date :
+        Link Materi :
+        - https://docs.google.com/presentation/d/1qaqOnHQLyeIBBc1wEG49XRtAwp1vSMsKn66-cOR9ML8/edit?slide=id.gb9271b049a_0_219#slide=id.gb9271b049a_0_219
+      */
+
+      {
+        // create date
+        console.log("--------------->Create Date<----------------");
+        const date1 = new Date();
+        console.info(date1);
+
+        const date2 = new Date(2020, 10, 10);
+        console.info(date2);
+
+        const date3 = new Date(2020, 10, 10, 16, 15, 9, 123);
+        console.info(date3);
+
+        const date4 = new Date(1623167419514);
+        console.info(date4);
+      }
+
+      {
+        // epoch & unix timestamp (membuat waktu dalam tipe time millis)
+        // disarankan menggunakan time milis (epoch timestamp) karena sudah standar dan sudah dimengerti disemua bahasa pemrograman
+        console.log("--------------->Epoch & Unix Timestamp<----------------");
+        const date1 = new Date();
+        console.info(date1.getTime());
+
+        const date2 = new Date(2020, 10, 10);
+        console.info(date2.getTime());
+
+        const date3 = new Date(2020, 10, 10, 16, 15, 9, 123);
+        console.info(date3.getTime());
+
+        const date4 = new Date(1623167419514);
+        console.info(date4.getTime());
+
+        console.info(Date.now()); // time milis waktu saat ini
+      }
+
+      {
+        // date parsing
+        console.log("--------------->Date Parsing<----------------");
+        const time = Date.parse("2020-10-10T08:45:45.123+07:00"); // parsing ke time milis
+        console.info(time);
+
+        const date = new Date(time);
+        console.info(date);
+      }
+
+      {
+        // getter dan setter
+        console.log("--------------->Getter dan Setter<----------------");
+        const date = new Date();
+
+        console.info(date.getFullYear());
+        console.info(date.getMonth());
+        console.info(date.getDate());
+        console.info(date.getHours());
+        console.info(date.getMinutes());
+        console.info(date.getSeconds());
+        console.info(date.getMilliseconds());
+        console.info(date.getTimezoneOffset());
+      }
+    </script>
+  </body>
+</html>
