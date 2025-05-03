@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Map</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Map :
+        Link Materi :
+        - https://docs.google.com/presentation/d/1qaqOnHQLyeIBBc1wEG49XRtAwp1vSMsKn66-cOR9ML8/edit?slide=id.gb9271b049a_0_259#slide=id.gb9271b049a_0_259
+      */
+
+      const map = new Map();
+      map.set("Name", "Eko Kurniawan");
+      map.set("Address", "Indonesia");
+
+      console.info(map);
+      console.info(map.get("Name"));
+      console.info(map.get("Address"));
+      console.info(map.get("Hobby"));
+
+      for (const element of map) {
+        console.info(`${element[0]} : ${element[1]}`);
+      }
+
+      map.forEach((value, key) => console.info(`${key} : ${value}`)); // lebih efektif
+    </script>
+  </body>
+</html
