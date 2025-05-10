@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Symbol</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Symbol :
+        Link Materi :
+        - Kita tidak hanya bisa menggunakan string untuk key di object, tapi juga bisa menggunakan symbol
+        - https://docs.google.com/presentation/d/1qaqOnHQLyeIBBc1wEG49XRtAwp1vSMsKn66-cOR9ML8/edit?slide=id.gb9271b049a_0_307#slide=id.gb9271b049a_0_307
+      */
+
+      {
+        // symbol
+        console.log("---------------> Symbol <----------------");
+        const firstName = Symbol("firstName");
+        const lastName = Symbol("lastName");
+
+        const person = {};
+        person[firstName] = "Eko";
+        person[lastName] = "Khannedy";
+
+        console.info(person);
+      }
+
+      {
+        // symbol for
+        console.log("---------------> Symbol For <----------------");
+        console.info(Symbol.for("firstName") === Symbol.for("firstName"));
+
+        const person = {};
+        person[Symbol.for("firstName")] = "Eko";
+        person[Symbol.for("lastName")] = "Khannedy";
+
+        console.info(person);
+        console.info(person[Symbol.for("firstName")]);
+        console.info(person[Symbol.for("lastName")]);
+      }
+    </script>
+  </body>
+</html>
