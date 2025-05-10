@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RegExp</title>
+  </head>
+  <body>
+    <script>
+      /*
+        RegExp :
+        Link Materi :
+        - RegExp merupakan implementasi dari regular expression di JavaScript
+        - Regular expression merupakan fitur untuk mencari text dengan pola yang kita tentukan
+        - Membuat regular expression di JavaScript bisa dilakukan dengan dua cara, yaitu menggunakan literal notation atau membuat object RegExp
+        - https://docs.google.com/presentation/d/1qaqOnHQLyeIBBc1wEG49XRtAwp1vSMsKn66-cOR9ML8/edit?slide=id.gb9271b049a_0_269#slide=id.gb9271b049a_0_269
+      */
+
+      {
+        //create regex
+        console.log("---------------> Create Regex <----------------");
+
+        const regex1 = /eko/; // cara 1
+        const regex2 = new RegExp("eko"); // cara 2
+        const regex3 = new RegExp(/eko/); // cara 3
+      }
+
+      {
+        // test regex
+        console.log("---------------> Test Regex <----------------");
+
+        const name = "eko kurniawan eko khannedy";
+        const regex = /eko/;
+
+        const result = regex.exec(name);
+        console.info(result);
+        console.info(regex.exec("tidak ada"));
+
+        const test = regex.test(name);
+        console.info(test);
+        console.info(regex.test("tidak ada"));
+      }
+
+      {
+        //regex modifier
+        console.log("---------------> Regex Modifier <----------------");
+
+        const name = "eko kurniawan\nEko khannedy\nEdo Kurniawan";
+        const regex1 = /eko/gi; // kombinasi modifier global, ignoreCase
+        const regex2 = /Kurniawan/gi; // kombinasi modifier ignoreCase, global
+        const regex3 = /^e.o/gim; // assertion, ^ = di awal dengan, . = semua karakter, $ = akhir dengan, jika menggunakan entern dan m = multiline maka akan mecari di semua baris
+
+        let result;
+        while ((result = regex1.exec(name)) !== null) {
+          // hati-hati ketika menggunakan while, karena akan terjadi infinite loop jika hanya menggnakan i atau ignoreCase
+          console.info(result);
+        }
+
+        while ((result = regex2.exec(name)) !== null) {
+          console.info(result);
+        }
+
+        while ((result = regex3.exec(name)) !== null) {
+          console.info(result);
+        }
+      }
+
+      {
+        // advanced regex
+        console.log("---------------> Advanced Regex <----------------");
+
+        const regex = /ek[ioaeu]/gi;
+
+        const name = "eko eki eka eku eke edo eko eki";
+        let result;
+        while ((result = regex.exec(name)) !== null) {
+          console.info(result);
+        }
+      }
+
+      {
+        console.log("---------------><----------------");
+        const name = "edo eko eki eka eku eke edo eko eki";
+
+        console.info(name.match(/ek[aiueo]/gi));
+        console.info(name.search(/ek[aiueo]/gi));
+        console.info(name.replace(/ek[aiueo]/i, "kamu"));
+        console.info(name.replaceAll(/ek[aiueo]/gi, "kamu")); // pastikan global, karena wajib
+        console.info(name.split(/e/gi));
+      }
+    </script>
+  </body>
+</html>
