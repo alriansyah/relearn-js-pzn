@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Proxy</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Proxy :
+        Link Materi :
+        - Proxy merupakan fitur yang bisa digunakan sebagai wakil sebuah data
+        - Dengan menggunakan proxy, semua interaksi ke data akan selalu melalui Proxy terlebih dahulu
+        - Dengan ini, kita bisa melakukan apapun sebelum interaksi dilakukan ke data yang dituju
+        - https://docs.google.com/presentation/d/1qaqOnHQLyeIBBc1wEG49XRtAwp1vSMsKn66-cOR9ML8/edit?slide=id.gdecae25303_0_112#slide=id.gdecae25303_0_112
+      */
+
+      const target = {
+        middleName: "Kurniawan",
+      };
+
+      const handler = { // function didalamnya adalah interceptor
+        get: function (target, property) { // function yang akan dipanggil ketika si proxynya dipanggil datanya
+          console.info(`Access property : ${property}`);
+          return target[property]; // jika anda meperbolehkan maka cukup mereturn target[property]
+        },
+        set: function (target, property, value) { // function yang akan dipanggil ketika si proxynya akan di set datanya
+          console.info(`Change property ${property} : ${value}`);
+          if (value == null) {
+            // throw new Error("Tidak boleh null");
+            target[property] = "";
+          } else {
+            target[property] = value; // jika anda meperbolehkan untuk di set
+          }
+        },
+      };
+
+      const proxy = new Proxy(target, handler);
+      proxy.firstName = "Eko";
+      proxy.lastName = null;
+
+      console.info(proxy.firstName);
+      console.info(proxy.middleName);
+      console.info(proxy.lastName);
+      console.info(target);
+    </script>
+  </body>
+</html>
