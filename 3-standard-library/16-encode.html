@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Encode</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Encode :
+        Link Materi :
+        - https://docs.google.com/presentation/d/1qaqOnHQLyeIBBc1wEG49XRtAwp1vSMsKn66-cOR9ML8/edit?slide=id.gdecae25303_0_122#slide=id.gdecae25303_0_122
+      */
+
+      {
+        // encode uri dan decode uri
+        console.log(
+          "---------------> encode uri dan decode uri <----------------"
+        );
+
+        const url = "http://contoh.com/?name=Eko Kurniawan Khannedy";
+        console.info(url);
+
+        const encoded = encodeURI(url);
+        console.info(encoded);
+
+        const decoded = decodeURI(encoded);
+        console.info(decoded);
+      }
+
+      {
+        // encode uri dan decode uri
+        console.log(
+          "---------------> encode uri component dan decode uri component <----------------"
+        );
+
+        const value = "Eko&Kurniawan=Khannedy";
+        const url = "http://contoh.com/?name=";
+        console.info(url + value);
+
+        const encoded = encodeURIComponent(value);
+        console.info(url + encoded);
+
+        const decoded = decodeURIComponent(encoded);
+        console.info(url + decoded);
+      }
+    </script>
+  </body>
+</html>
