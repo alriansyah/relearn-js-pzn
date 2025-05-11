@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Base64</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Base64 :
+        Link Materi :
+        - Base64 merupakan binary to text encoding, representasi binary data dalam format string
+        - Base64 merupakan format text data yang aman untuk dikirimkan di web
+        - Base64 merupakan encoding yang biasanya digunakan ketika perlu mengirim data dari client ke server
+        - Karena encoding Base64 merupakan text, oleh karena itu sangat aman digunakan pada query param URL atau text body dalam form
+        - https://docs.google.com/presentation/d/1qaqOnHQLyeIBBc1wEG49XRtAwp1vSMsKn66-cOR9ML8/edit?slide=id.gdecae25303_0_135#slide=id.gdecae25303_0_135
+      */
+
+      const original = "Eko&Kurniwan=Khannedy";
+      console.info(original);
+
+      const encoded = btoa(original); // Encode ke base64 dari value
+
+      console.info(encoded);
+
+      const decoded = atob(encoded); // Decode dari base64 ke value
+      console.info(decoded);
+    </script>
+  </body>
+</html>
