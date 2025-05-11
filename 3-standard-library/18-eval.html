@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Eval</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Eval :
+        Link Materi :
+        - Eval merupakan function yang digunakan untuk mengeksekusi kode JavaScript dari String
+        - Fitur ini sangat menarik, namun perlu hati-hati ketika menggunakannya
+        - Jika sampai salah penggunaan, maka bisa jadi kita malah mengeksekusi kode program yang bisa menyebabkan masalah keamanan di website kita
+        - hhttps://docs.google.com/presentation/d/1qaqOnHQLyeIBBc1wEG49XRtAwp1vSMsKn66-cOR9ML8/edit?slide=id.gdecae25303_0_147#slide=id.gdecae25303_0_147
+      */
+
+      const script = "alert('Anda di heck')";
+
+      eval(script);
+    </script>
+  </body>
+</html>
