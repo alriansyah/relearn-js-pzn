@@ -3,10 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <title>With Module</title>
-    <script type="module" src="scripts/say.js"></script>
+    <script type="module"></script>
   </head>
   <body>
     <script type="module">
+      // Ketika menggunakan type module, kita bisa menggunakan import seperti ini. tidak perlu memasukannya di src di tag script untuk memanggilnya
+      import { sayHello, sayGoodBye, name } from "./scripts/say.js"; // jiia menggunakan module, untuk referensi file harus menggunakan path relatif
+
       sayHello("Eko");
       sayGoodBye("Eko");
 
