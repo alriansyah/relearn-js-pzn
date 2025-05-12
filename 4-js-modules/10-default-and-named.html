@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Default and Named</title>
+  </head>
+  <body>
+    <script type="module">
+      // direkomendasikan bedakan antara default dan named, jadi lebih baik buat module terpisah,
+      // karena jika digabung akan membingungkan kita ketika mengimport
+      // dan direkomendasikan menggunakan named daripada default
+      // fitur export default biasanya digunakan biar compatible dengan CommonJS dan AMD modules sistem
+
+      // import {default as authorName, content, title} from "./scripts/default-and-named.js"; // sama saja
+      import authorName, {
+        content,
+        title,
+      } from "./scripts/default-and-named.js";
+
+      console.info(title);
+      console.info(content);
+      console.info(authorName);
+    </script>
+  </body>
+</html>
