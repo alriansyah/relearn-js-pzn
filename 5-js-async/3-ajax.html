@@ -9,6 +9,14 @@
     <script>
       const ajax = new XMLHttpRequest();
       ajax.open("GET", "api/hello.json");
+      // ajax.onload = callback
+      ajax.addEventListener("load", function () {
+        // kode ini dijalankan ketika sudah melakukan request/send
+        const json = JSON.parse(ajax.responseText);
+
+        const header = document.getElementById("response");
+        header.textContent = json.response;
+      });
       ajax.send();
     </script>
   </body>
