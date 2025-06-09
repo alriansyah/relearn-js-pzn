@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Promise Static Method</title>
+  </head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td>Id :</td>
+          <td id="id"></td>
+        </tr>
+        <tr>
+          <td>Name :</td>
+          <td id="name"></td>
+        </tr>
+        <tr>
+          <td>Price :</td>
+          <td id="price"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      /*
+        - Promise juga memiliki beberapa static method
+        - Promise.all() digunakan untuk mengeksekusi beberapa promise sekaligus dan menunggu semua hasil promise nya
+        - Promise.any() digunakan untuk mengeksekusi beberapa promise sekaligus dan mengambil hasil promise paling cepat
+          Dan lain-lain
+        - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#static_methods 
+      */
+
+      function getProduct(product) {
+        return new Promise(function (resolve, reject) {
+          const ajax = new XMLHttpRequest();
+          ajax.open("GET", `api/${product}.json`);
+          ajax.onload = function () {
+            if (ajax.status === 200) {
+              resolve(ajax.responseText);
+            } else {
+              reject(`Error Get Product with response : ${ajax.status}`);
+            }
+          };
+          ajax.send();
+        });
+      }
+
+      const promise = Promise.all([
+        // bisa juga gunakan any, race dan lainnya
+        getProduct("product1"),
+        getProduct("product2"),
+        getProduct("product3"),
+      ]);
+
+      promise
+        .then(function (products) {
+          console.info(products);
+
+          if (Array.isArray(products)) {
+            const productJson = products.map(function (product) {
+              return JSON.parse(product);
+            });
+
+            console.info(productJson);
+          }
+        })
+        .catch(function (errors) {
+          console.info(errors);
+        });
+    </script>
+  </body>
+</html>
