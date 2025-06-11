@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fetch API</title>
+  </head>
+  <body>
+    <form>
+      <label for="username"
+        >Username:
+        <input type="text" id="username" name="username" />
+      </label>
+      <br />
+      <label for="password"
+        >Password:
+        <input type="password" id="password" name="password" />
+      </label>
+      <br />
+      <input type="button" id="login" value="Login" />
+    </form>
+    <h1 id="response"></h1>
+    <script>
+      /*
+        Fetch API:
+        Link Materi :
+        - https://docs.google.com/presentation/d/1aCO7Rq4x68CuK3Ez9Z9jBw5-UDb4xq3ndz0KSK-WF4I/edit?slide=id.g1009f0159f5_0_315#slide=id.g1009f0159f5_0_315
+      */
+
+      function doLogin() {
+        const request = new Request(
+          "https://test-belajar-async.free.beeceptor.com/login",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({
+              username: document.getElementById("username").value,
+              password: document.getElementById("password").value,
+            }),
+          }
+        );
+
+        // Promise<Response>
+        const response = fetch(request);
+
+        response
+          .then((response) => response.json()) // mengembalikan promise lagi namun dengan data yang sudah diconvert
+          .then(function (json) {
+            document.getElementById(
+              "response"
+            ).textContent = `${json.status}, ${json.username}, ${json.password}`;
+          })
+          .catch(function (error) {
+            document.getElementById("response").textContent = error;
+          });
+      }
+
+      document.getElementById("login").onclick = doLogin;
+    </script>
+  </body>
+</html>
