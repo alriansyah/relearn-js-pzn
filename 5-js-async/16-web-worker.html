@@ -15,7 +15,7 @@
         - https://docs.google.com/presentation/d/1aCO7Rq4x68CuK3Ez9Z9jBw5-UDb4xq3ndz0KSK-WF4I/edit?slide=id.g1009f0159f5_0_327#slide=id.g1009f0159f5_0_327
       */
 
-      const worker = new Worker("worker.js");
+      const worker = new Worker("16-worker.js");
       worker.addEventListener("message", function (message) {
         console.info(message.data);
       });
