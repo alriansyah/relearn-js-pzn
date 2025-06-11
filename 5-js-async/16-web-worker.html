@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Web Worker</title>
+  </head>
+  <body>
+    <button id="buttonTask">Click Me</button>
+
+    <script>
+      /*
+        Web Worker:
+
+        Link Materi :
+        - https://docs.google.com/presentation/d/1aCO7Rq4x68CuK3Ez9Z9jBw5-UDb4xq3ndz0KSK-WF4I/edit?slide=id.g1009f0159f5_0_327#slide=id.g1009f0159f5_0_327
+      */
+
+      const worker = new Worker("worker.js");
+      worker.addEventListener("message", function (message) {
+        console.info(message.data);
+      });
+
+      document.getElementById("buttonTask").onclick = function () {
+        worker.postMessage(100000);
+      };
+    </script>
+  </body>
+</html>
